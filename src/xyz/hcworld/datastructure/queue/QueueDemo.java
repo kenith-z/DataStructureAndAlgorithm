@@ -52,7 +52,7 @@ public class QueueDemo {
                 case 'h':
                     //查看队列头数据
                     try {
-                        int res = queue.hradQueue();
+                        int res = queue.headQueue();
                         System.out.printf("队列头的数据是%d", res);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());

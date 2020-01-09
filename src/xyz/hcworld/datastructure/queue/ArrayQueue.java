@@ -144,7 +144,7 @@ public class ArrayQueue {
      * 显示队列头数据，不是取数据
      * @return 队列头数据，front不后移
      */
-    public int hradQueue() {
+    public int headQueue() {
         if (sizeEmpty()) {
             throw new RuntimeException("队列为空，不能取数据");
         }

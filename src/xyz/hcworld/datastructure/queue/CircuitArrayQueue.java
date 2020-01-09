@@ -9,7 +9,7 @@ package xyz.hcworld.datastructure.queue;
  *         3[-----]             →         3[-----]             →         3[-----]                      *
  *         2[-----]             取         2[-----]<-front=2    存         2[-----]<-front=2             *
  *         1[-----]                        1[     ]                        1[     ]<-rear =1             *
- *         0[-----]<-front=-1              0[     ]                        0[-----]                      *
+ *         0[-----]<-front=0               0[     ]                        0[-----]                      *
  *           Queue                           Queue                           Queue                       *
  *  队列弹出元素后front指向元素2继续补充队列到满时则rear指向1，rear+1=3  则3%5=3，而front指向3则队列[满] *
  *********************************************************************************************************
@@ -44,9 +44,9 @@ package xyz.hcworld.datastructure.queue;
  */
 
 /**
- * 数组模拟队列
+ * 数组模拟环形队列
  *
- * @ClassName: ArrayQueue
+ * @ClassName: CircuitArrayQueue
  * @Author: 张红尘
  * @Date: 2020/1/5 15:47
  * @Version： 1.0
@@ -172,7 +172,7 @@ public class CircuitArrayQueue {
      *
      * @return 队列头数据，front不后移
      */
-    public int hradQueue() {
+    public int headQueue() {
         if (sizeEmpty()) {
             throw new RuntimeException("队列为空，不能取数据");
         }
