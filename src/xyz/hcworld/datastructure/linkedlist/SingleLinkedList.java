@@ -2,6 +2,8 @@ package xyz.hcworld.datastructure.linkedlist;
 
 import xyz.hcworld.datastructure.linkedlist.node.NodeOfSingle;
 
+import java.util.Stack;
+
 /*
  *********************************************************************************************************
  * 数据结构之环形队列                                                                                    *
@@ -44,17 +46,33 @@ import xyz.hcworld.datastructure.linkedlist.node.NodeOfSingle;
  * 添加（根据id顺序）                                                                                    *
  *      1.	通过辅助变量temp找到新节点的插入位置，如果链表有当前编号则插入失败                           *
  *      2.	新的节点的next指向temp.next，即newNode.next=temp.next                                        *
- *      3.	3.	将temp.next指向新节点，即temp.next=newNode                                               *
+ *      3.	将temp.next指向新节点，即temp.next=newNode                                                   *
  * 插入（表头）                                                                                          *
  *      1.	新节点的next指向头指针的下一个节点                                                           *
  *      2.	头指针指向新节点                                                                             *
  *      3.	判断是否是空链表插入第一个元素时，尾指针后移，如果不是则不移动                               *
- * 插入（非表头）                                                                                        *
- *      1.	通过找到指定节点，如果链表有没有当前编号则插入失败                                           *
- *      2.	如果插入的节点为最后一个，则tail尾指针指向新节点                                             *
- *      3.	把指定节点的nex赋值给新节点，然后指定节点指向新节点                                          *
  * 查找                                                                                                  *
  *      1.	遍历对比id找到目标节点                                                                       *
+ * 有效个数                                                                                              *
+ *      1.  方法1.    遍历链表                                                                           *
+ *      2.	方法2.    定义一个全局遍历length，增加节点，插入节点+1，删除节点-1                           *
+ * 反转链表                                                                                              *
+ *      1.	定义一个节点reverseHead                                                                      *
+ *      2.	从头到尾遍历链表，每遍历一个节点，就将其取出，放到新链表的最前端                             *
+ *      3.	原来的head.next=reverseHead.next                                                             *
+ * 查找倒数第n个节点                                                                                     *
+ *      1.	接受head节点，以及n                                                                          *
+ *      2.	获得链表有效个数length                                                                       *
+ *      3.	从链表遍历到（length-n）个，得到倒数第n个节点                                                *
+ * 逆序打印                                                                                              *
+ *      1.	方式1：对各个节点进行压栈，利用栈的先进后出，实现逆序打印的效果                              *
+ *          a)	创建一个栈，将各个节点压入栈中                                                           *
+ *          b)	将链表节点压栈                                                                           *
+ *          c)	弹栈                                                                                     *
+ *      2.	方式2：递归                                                                                  *
+ *          a)	创建临时节点                                                                             *
+ *          b)	设置递归终止条件temp == null                                                             *
+ *          c)	调用方法体本身                                                                           *
  * 修改内容                                                                                              *
  *      1.	根据newNode的id找到要修改的节点，如果没有则警告                                              *
  *      2.	把新节点的内容赋值到要修改的节点                                                             *
@@ -83,6 +101,14 @@ public class SingleLinkedList {
      */
     private NodeOfSingle tail = head;
 
+    /**
+     * 返回头节点相当于获得了整个链表
+     *
+     * @return 头节点
+     */
+    public NodeOfSingle getHead() {
+        return head;
+    }
 
     /**
      * 添加节点到单向链表（不考虑id顺序）
@@ -149,43 +175,10 @@ public class SingleLinkedList {
         }
     }
 
-    /**
-     * 插入新节点到指点节点的后面
-     *
-     * @param newNode 新节点
-     * @param id      要插入的位置
-     */
-    public void insert(NodeOfSingle newNode, int id) {
-        //判断链表是否为空
-        if (head.next == null) {
-            System.out.println("链表为空");
-            return;
-        }
-        //找到插入的节点，根据id找
-        NodeOfSingle temp = head.next;
-        //表示是否找到该节点
-        boolean flag = false;
-        while (temp != null) {
-            //找到后
-            if (temp.id == id) {
-                flag = true;
-                break;
-            }
-            temp = temp.next;
-        }
-        //根据flag是否找到要修改的节点
-        if (flag) {
-            tail = tail.id == id ? newNode : tail;
-            //找到后把指定节点的nex赋值给新节点，然后指定节点指向新节点
-            newNode.next = temp.next;
-            temp.next = newNode;
-        } else {
-            System.out.printf("%d号节点不存在,不能插入！\n", id);
-        }
-    }
 
     /**
      * 插入新节点到链表头
+     *
      * @param newNode 新节点
      */
     public void insertTop(NodeOfSingle newNode) {
@@ -194,7 +187,7 @@ public class SingleLinkedList {
         newNode.next = temp.next;
         temp.next = newNode;
         //如果是空链表插入第一个元素时，尾指针后移，如果不是则不移动
-        tail = newNode.next==null?newNode:tail;
+        tail = newNode.next == null ? newNode : tail;
     }
 
     /**
@@ -266,6 +259,7 @@ public class SingleLinkedList {
 
     /**
      * 查找指定id的节点并打印数据
+     *
      * @param id 要查找的节点id
      */
     public void select(int id) {
@@ -290,7 +284,132 @@ public class SingleLinkedList {
         }
     }
 
+    /**
+     * 获得单向链表的节点个数
+     * 实现的两种方法：
+     * 1.遍历链表
+     * 2.定义一个全局遍历length，增加节点，插入节点+1，删除节点-1
+     *
+     * @param head 链表头节点
+     * @return 返回有效节点的个数
+     */
+    public static int getLength(NodeOfSingle head) {
+        //判断链表是否为空
+        if (head.next == null) {
+            return 0;
+        }
+        int length = 0;
+        NodeOfSingle temp = head.next;
+        while (temp != null) {
+            length++;
+            temp = temp.next;
+        }
+        return length;
+    }
 
+    /**
+     * 查找倒数第n个节点
+     * 1.接受head节点，以及n
+     * 2.获得链表有效个数length
+     * 3.从链表遍历到（length-n）个，得到倒数第n个节点
+     *
+     * @param head 链表头节点
+     * @param n    倒数
+     */
+    public static NodeOfSingle findLastUnknownNode(NodeOfSingle head, int n) {
+        //判断链表是否为空
+        if (head.next == null) {
+            return null;
+        }
+        //第一次遍历的到链表长度（节点个数）
+        int length = getLength(head);
+        //第二次遍历，获得倒数第N个
+        if (n <= 0 || n > length) {
+            return null;
+        }
+        //定义赋值变量
+        NodeOfSingle temp = head.next;
+        for (int i = 0; i < length - n; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    /**
+     * 反转链表
+     * 1.	定义一个节点reverseHead
+     * 2.	从头到尾遍历链表，每遍历一个节点，就将其取出，放到新链表的最前端
+     * 3.	原来的head.next=reverseHead.next
+     *
+     * @param head 链表头
+     */
+    public static void reverseList(NodeOfSingle head) {
+        //如果当前链表为空，或者只有一个节点，无需反转，直接返回
+        if (head.next == null || head.next.next == null) {
+            return;
+        }
+        //辅助节点,遍历链表
+        NodeOfSingle temp = head.next;
+        //指向当前节点的下一个节点
+        NodeOfSingle next = null;
+        //反转链表
+        NodeOfSingle reverseHead = new NodeOfSingle(0, "");
+        //遍历临时的链表，每遍历一个节点，就将其取出，并放到原来的Head的最前端
+        while (temp != null) {
+            //暂时保存下一个节点，否则链表丢失
+            next = temp.next;
+            //将reverseHead的下一个赋值给temp。逻辑参考insertTop方法
+            temp.next = reverseHead.next;
+            //将temp链接到新的链表上
+            reverseHead.next = temp;
+            //后移
+            temp = next;
+        }
+        //完成后赋值回head
+        head.next = reverseHead.next;
+    }
+
+    /**
+     * 逆序打印
+     * 方式1：对各个节点进行压栈，利用栈的先进后出，实现逆序打印的效果
+     * 方式2：递归
+     */
+    public static void reverse1Print(NodeOfSingle head) {
+        //判断是否为空
+        if (head.next == null) {
+            return;
+        }
+        //创建一个栈，将各个节点压入栈中
+        Stack<NodeOfSingle> stack = new Stack<>();
+        NodeOfSingle temp = head.next;
+        //将链表节点压栈
+        while (temp != null) {
+            stack.push(temp);
+            //后移
+            temp = temp.next;
+        }
+        //弹栈
+        while (stack.size() > 0) {
+            //先进后出
+            System.out.println(stack.pop());
+        }
+    }
+
+    /**
+     * 递归逆序打印
+     * @param head 头结点
+     */
+    public static void reverse2Print(NodeOfSingle head) {
+        NodeOfSingle temp = head;
+        //判断是否为空
+        if (temp == null) {
+            return;
+        }
+        reverse2Print(temp.next);
+        if (temp.id != 0) {
+            System.out.println(temp);
+        }
+    }
 
     /**
      * 显示单链表[遍历]
@@ -340,6 +459,12 @@ public class SingleLinkedList {
         singleLinkedList.addByOrder(node8);
         singleLinkedList.addByOrder(node3);
         singleLinkedList.addByOrder(node7);
+
+
+        System.out.println("倒数:" + findLastUnknownNode(singleLinkedList.getHead(), 8));
+
+        System.out.println("有效个数:" + getLength(singleLinkedList.getHead()));
+
         //修改前
         System.out.println("-------------修改前-------------");
         singleLinkedList.list();
@@ -350,12 +475,21 @@ public class SingleLinkedList {
         System.out.println("-------------修改后-------------");
         singleLinkedList.list();
         System.out.println("-------------修改后-------------");
+
+        System.out.println("-------------逆序打印-------------");
+        System.out.println("-------------栈-------------");
+        reverse1Print(singleLinkedList.getHead());
+        System.out.println("-------------递归-------------");
+        reverse2Print(singleLinkedList.getHead());
+        System.out.println("-------------逆序打印-------------");
+
         //删除一个节点
         singleLinkedList.delete(1);
         singleLinkedList.delete(2);
         singleLinkedList.delete(3);
         singleLinkedList.delete(4);
         singleLinkedList.delete(5);
+
         singleLinkedList.delete(6);
         singleLinkedList.delete(7);
         singleLinkedList.delete(8);
@@ -367,13 +501,13 @@ public class SingleLinkedList {
         node5 = new NodeOfSingle(5, "王五");
         singleLinkedList.add(node3);
 //        singleLinkedList.add(node7);
-//        singleLinkedList.addByOrder(node5);
+        singleLinkedList.addByOrder(node5);
+        singleLinkedList.addByOrder(node7);
+        singleLinkedList.addByOrder(node4);
+
+
 //
 //        singleLinkedList.delete(7);
-
-        singleLinkedList.insert(node5, 0);
-        singleLinkedList.addByOrder(node4);
-        singleLinkedList.insert(node7, 3);
 
 
         node6 = new NodeOfSingle(6, "赵六");
@@ -381,14 +515,15 @@ public class SingleLinkedList {
 
         singleLinkedList.select(3);
         singleLinkedList.select(10);
+        System.out.println("有效个数:" + getLength(singleLinkedList.getHead()));
 
+        System.out.println("倒数:" + findLastUnknownNode(singleLinkedList.getHead(), 1));
+        reverseList(singleLinkedList.getHead());
         System.out.println("尾指针指向：" + singleLinkedList.tail);
-
         // 显示
         System.out.println("--------------最终--------------");
         singleLinkedList.list();
         System.out.println("--------------最终--------------");
-
     }
 
 
