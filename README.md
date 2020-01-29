@@ -22,10 +22,12 @@ xyz
 &ensp;&ensp;&ensp;└─datastructure    
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;├─linkedlist    
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;│&emsp;&emsp;&emsp;&nbsp;[SingleLinkedList.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/linkedlist/SingleLinkedList.java "单向链表")&ensp;单向链表  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;│   
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;│&emsp;&emsp;&emsp;&nbsp;[DoubleLinkedList.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/linkedlist/DoubleLinkedList.java "双向链表")&ensp;双向链表  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;│  
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;└─node   
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&emsp;&emsp;&emsp;&emsp;[NodeOfSingle.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/linkedlist/node/NodeOfSingle.java "单向链表节点")&ensp;单向链表节点  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│   
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&emsp;&emsp;&emsp;&emsp;[NodeOfDouble.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/linkedlist/node/NodeOfDouble.java "双向链表节点")&ensp;双向链表节点  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│  
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;├─queue   
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&emsp;&emsp;&emsp;&nbsp;[ArrayQueue.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/queue/ArrayQueue.java "队列")&ensp;队列  
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&emsp;&emsp;&emsp;&nbsp;[CircuitArrayQueue.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/queue/CircuitArrayQueue.java "环形队列")&ensp;环形队列  

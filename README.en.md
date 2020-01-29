@@ -19,6 +19,7 @@ xyz
 &ensp;&ensp;&ensp;│    
 &ensp;&ensp;&ensp;└─datastructure    
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;├─linkedlist    
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;│&emsp;&emsp;&emsp;&nbsp;[SingleLinkedList.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/linkedlist/DoubleLinkedList.java "Two way linked list")&ensp;Two way linked list  
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;│&emsp;&emsp;&emsp;&nbsp;[SingleLinkedList.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/linkedlist/SingleLinkedList.java "One-way linked list")&ensp;One-way linked list  
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;│   
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;└─node   
