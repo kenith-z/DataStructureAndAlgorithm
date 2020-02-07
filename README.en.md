@@ -33,8 +33,10 @@ xyz
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&emsp;&emsp;&emsp;&nbsp;[CircuitArrayQueue.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/queue/CircuitArrayQueue.java "Circuit Queue")&ensp;Circuit queue  
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&emsp;&emsp;&emsp;&nbsp;[QueueDemo.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/queue/QueueDemo.java "Queue test")&ensp;Queue test demo  
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│    
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;└─sparsearray    
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[SparseArray.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/sparsearray/SparseArray.java "Sparse array")&ensp;Sparse array  
-
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;├─sparsearray   
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│&ensp;&ensp;&ensp;&ensp;&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[SparseArray.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/sparsearray/SparseArray.java "Sparse array")&ensp;Sparse array    
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;│    
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;└─stack  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&nbsp;&nbsp;[ArrayStack.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/datastructure/stack/ArrayStack.java "Stack")&ensp;Stack  
 ## License
 **This project is licensed under the terms of the MIT license.**
