@@ -10,7 +10,7 @@ If a programmer does not know the data structure and algorithm, he is a brick ca
 No matter how new the framework you learn, no matter how powerful the middleware you use, you don't know the underlying data structure and algorithm, you just stay in the know how to use it. As for the high-level performance optimization, at best, you can only watch Baidu and eat the rest.  
 How to adjust it? Why to adjust it like this? You don't know. You use the is results of others. As for whether can really improve performance, you don't know, because you don't know.
 
-##note
+## note
 [DataStructure and algorithm of note](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/DataStructureAndAlgorithm.pdf "DataStructure and algorithm of note")
 
 
