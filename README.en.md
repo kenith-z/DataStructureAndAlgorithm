@@ -18,6 +18,11 @@ How to adjust it? Why to adjust it like this? You don't know. You use the is res
 xyz  
 └─hcworld  
 &ensp;&ensp;&ensp;├─algorithm  
+&ensp;&ensp;&ensp;│&ensp;&nbsp;├─recursion  
+&ensp;&ensp;&ensp;│&ensp;&nbsp;│&emsp;&emsp;&emsp;&emsp;&emsp;[MazePath.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/algorithm/recursion/MazePath.java "Maze path")&ensp;Maze path  
+&ensp;&ensp;&ensp;│&ensp;&nbsp;│&emsp;&emsp;&emsp;&emsp;&emsp;[Queens8Question.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/algorithm/recursion/Queens8Question.java "8 queens question")&ensp;8 queens question  
+&ensp;&ensp;&ensp;│&ensp;&nbsp;│&emsp;&emsp;&emsp;&emsp;&emsp;[Recursion.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/algorithm/recursion/Recursion.java "Recursion")&ensp;Recursion  
+&ensp;&ensp;&ensp;│&ensp;&nbsp;│  
 &ensp;&ensp;&ensp;│&ensp;&nbsp;└─sorting  
 &ensp;&ensp;&ensp;│&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;[BubbleSort.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/algorithm/sorting/BubbleSort.java "Bubble sort")&ensp;Bubble sort  
 &ensp;&ensp;&ensp;│&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;[DirectInsertionSort.java](https://github.com/z875479694h/DataStructureAndAlgorithm/blob/master/src/xyz/hcworld/algorithm/sorting/DirectInsertionSort.java "DirectInsertion sort")&ensp;DirectInsertion sort  
