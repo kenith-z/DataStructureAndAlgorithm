@@ -21,6 +21,9 @@ public class Queens8Question {
      * 解法个数
      */
     static int sCount = 0;
+    /**
+     * 冲突次数
+     */
     static int sJudgeCount=0;
 
     /**
