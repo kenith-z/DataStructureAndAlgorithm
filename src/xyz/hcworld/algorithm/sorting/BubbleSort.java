@@ -1,5 +1,7 @@
 package xyz.hcworld.algorithm.sorting;
 
+import java.util.Arrays;
+
 /**
  * @author : 张红尘
  * @version 1.0
@@ -10,7 +12,7 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         //要排序的数组
-        int[] arr = {2, 99, 88, 77, 26, 78, 2384, 28, 66, 33, 78, 12, 34, 56, 789, 555, 1, 3, 8, 779};
+        int[] arr = {3,9,8,6,7,2,3,4,1,5};
         //数组长度
         int n = arr.length;
         System.out.println(arr.length);
@@ -27,9 +29,21 @@ public class BubbleSort {
             }
         }
         //打印数组
-        for (int i : arr) {
-            System.out.print(i + "\t");
+        //[2384, 789, 779, 555, 99, 88, 78, 78, 77, 66, 56, 34, 33, 28, 26, 12, 8, 3, 2, 1]
+        System.out.println(Arrays.toString(arr));
+        int temp;
+        for (int i = 0; i < arr.length-1; i++) {
+            for (int j = 0; j < arr.length -1 - i; j++) {
+                if (arr[j + 1] < arr[j]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
         }
+        //[1, 2, 3, 8, 12, 26, 28, 33, 34, 56, 66, 77, 78, 78, 88, 99, 555, 779, 789, 2384]
+        System.out.println(Arrays.toString(arr));
+
     }
 
 }
